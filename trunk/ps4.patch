@@ -5693,7 +5693,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 +		if (connector->encoder_ids[i] == 0)
 +			break;
 +
-+		encoder = drm_encoder_find(connector->dev,
++		encoder = drm_encoder_find(connector->dev, NULL,
 +					   connector->encoder_ids[i]);
 +		if (!encoder)
 +			continue;
@@ -5718,7 +5718,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 +		if (connector->encoder_ids[i] == 0)
 +			break;
 +
-+		encoder = drm_encoder_find(connector->dev, connector->encoder_ids[i]);
++		encoder = drm_encoder_find(connector->dev, NULL, connector->encoder_ids[i]);
 +		if (!encoder)
 +			continue;
 +
@@ -5756,7 +5756,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 +	int enc_id = connector->encoder_ids[0];
 +	/* pick the encoder ids */
 +	if (enc_id)
-+		return drm_encoder_find(connector->dev, enc_id);
++		return drm_encoder_find(connector->dev, NULL, enc_id);
  	return NULL;
  }
  
@@ -5947,7 +5947,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 +			if (connector->encoder_ids[i] == 0)
 +				break;
 +
-+			encoder = drm_encoder_find(connector->dev,
++			encoder = drm_encoder_find(connector->dev, NULL, 
 +						   connector->encoder_ids[i]);
 +			if (!encoder)
 +				continue;
@@ -5981,7 +5981,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 +		if (connector->encoder_ids[i] == 0)
 +			break;
 +
-+		encoder = drm_encoder_find(connector->dev, connector->encoder_ids[i]);
++		encoder = drm_encoder_find(connector->dev, NULL, connector->encoder_ids[i]);
 +		if (!encoder)
 +			continue;
  
@@ -5997,7 +5997,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 -		return encoder;
 -
 +	if (enc_id)
-+		return drm_encoder_find(connector->dev, enc_id);
++		return drm_encoder_find(connector->dev, NULL, enc_id);
  	return NULL;
  }
  
@@ -6019,7 +6019,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 +		if (connector->encoder_ids[i] == 0)
 +			break;
 +
-+		encoder = drm_encoder_find(connector->dev, connector->encoder_ids[i]);
++		encoder = drm_encoder_find(connector->dev, NULL, connector->encoder_ids[i]);
 +		if (!encoder)
 +			continue;
 +
@@ -6035,7 +6035,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
 +		if (connector->encoder_ids[i] == 0)
 +			break;
 +
-+		encoder = drm_encoder_find(connector->dev, connector->encoder_ids[i]);
++		encoder = drm_encoder_find(connector->dev, NULL, connector->encoder_ids[i]);
 +		if (!encoder)
 +			continue;
 +
