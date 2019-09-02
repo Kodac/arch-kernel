@@ -4802,7 +4802,7 @@ diff -uNr linux/drivers/gpu/drm/radeon/ps4_bridgeback.c linux-5.0.11-gentoo/driv
 +	//newmode = drm_mode_duplicate(dev, &mode_480p);
 +	//drm_mode_probed_add(connector, newmode);
 +
-+	drm_mode_connector_update_edid_property(connector, NULL);
++	drm_connector_update_edid_property(connector, NULL);
 +
 +	return 0;
 +}
@@ -5475,12 +5475,12 @@ diff -uNr linux/drivers/gpu/drm/radeon/ps4_bridge.c linux-5.0.11-gentoo/drivers/
 +	newmode = drm_mode_duplicate(dev, &mode_1080p);
 +	drm_mode_probed_add(connector, newmode);
 +
-+	newmode = drm_mode_duplicate(dev, &mode_720p);
-+	drm_mode_probed_add(connector, newmode);
++	//newmode = drm_mode_duplicate(dev, &mode_720p);
++	//drm_mode_probed_add(connector, newmode);
 +	//newmode = drm_mode_duplicate(dev, &mode_480p);
 +	//drm_mode_probed_add(connector, newmode);
 +
-+	drm_mode_connector_update_edid_property(connector, NULL);
++	drm_connector_update_edid_property(connector, NULL);
 +
 +	return 0;
 +}
@@ -5734,13 +5734,13 @@ diff -uNr linux/drivers/gpu/drm/radeon/radeon_connectors.c linux-5.0.11-gentoo/d
  
  	if (radeon_connector->edid) {
 -		drm_connector_update_edid_property(connector, radeon_connector->edid);
-+		drm_mode_connector_update_edid_property(connector, radeon_connector->edid);
++		drm_connector_update_edid_property(connector, radeon_connector->edid);
  		ret = drm_add_edid_modes(connector, radeon_connector->edid);
 +		drm_edid_to_eld(connector, radeon_connector->edid);
  		return ret;
  	}
 -	drm_connector_update_edid_property(connector, NULL);
-+	drm_mode_connector_update_edid_property(connector, NULL);
++	drm_connector_update_edid_property(connector, NULL);
  	return 0;
  }
  

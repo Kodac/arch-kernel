@@ -4,7 +4,7 @@
 
 pkgbase=linux               # Build stock -ARCH kernel
 #pkgbase=linux-custom       # Build kernel with a different name
-_srcver=5.0.13-arch1
+_srcver=5.1.16-arch1
 pkgver=${_srcver//-/.}
 pkgrel=1
 arch=(x86_64)
@@ -29,11 +29,11 @@ validpgpkeys=(
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
 sha256sums=('SKIP'
-            'ada1b52730236875ee9346cf289819d22ee37417acd057367b480a3395fd585d'
+            'fff46d77e41bcc1c464768009bb541cf12369b40023bc81f5f1bf8cfd6451736'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             'c043f3033bb781e2688794a59f6d1f7ed49ef9b13eb77ff9a425df33a244a636'
             'ad6344badc91ad0630caacde83f7f9b97276f80d26a20619a87952be65492c65'
-            '57ad87866bc56c312234ecdd43d2340f69f93a08bd74205c7d7ad3c676020cff')
+            '2924ac47bfcb4b8b05c9296188b9acad5d2803b4b9379ed10f2ee6e07b4d9e2d')
 
 _kernelname=${pkgbase#linux}
 : ${_kernelname:=-ARCH}
