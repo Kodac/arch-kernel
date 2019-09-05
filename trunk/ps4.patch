@@ -1,6 +1,6 @@
-diff -uNr linux-5.0.17/arch/x86/include/asm/msi.h ps4gentoo5.0.17-master/arch/x86/include/asm/msi.h
+diff -uNr linux-5.0.17/arch/x86/include/asm/msi.h ps4-5.0.17-master/arch/x86/include/asm/msi.h
 --- linux-5.0.17/arch/x86/include/asm/msi.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/include/asm/msi.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/include/asm/msi.h	2019-05-20 16:57:42.000000000 +0200
 @@ -11,4 +11,6 @@
  
  void pci_msi_set_desc(msi_alloc_info_t *arg, struct msi_desc *desc);
@@ -8,9 +8,9 @@ diff -uNr linux-5.0.17/arch/x86/include/asm/msi.h ps4gentoo5.0.17-master/arch/x8
 +void irq_msi_compose_msg(struct irq_data *data, struct msi_msg *msg);
 +
  #endif /* _ASM_X86_MSI_H */
-diff -uNr linux-5.0.17/arch/x86/include/asm/ps4.h ps4gentoo5.0.17-master/arch/x86/include/asm/ps4.h
+diff -uNr linux-5.0.17/arch/x86/include/asm/ps4.h ps4-5.0.17-master/arch/x86/include/asm/ps4.h
 --- linux-5.0.17/arch/x86/include/asm/ps4.h	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/arch/x86/include/asm/ps4.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/include/asm/ps4.h	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,60 @@
 +/*
 + * ps4.h: Sony PS4 platform setup code
@@ -72,9 +72,9 @@ diff -uNr linux-5.0.17/arch/x86/include/asm/ps4.h ps4gentoo5.0.17-master/arch/x8
 +
 +#endif
 +#endif
-diff -uNr linux-5.0.17/arch/x86/include/asm/setup.h ps4gentoo5.0.17-master/arch/x86/include/asm/setup.h
+diff -uNr linux-5.0.17/arch/x86/include/asm/setup.h ps4-5.0.17-master/arch/x86/include/asm/setup.h
 --- linux-5.0.17/arch/x86/include/asm/setup.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/include/asm/setup.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/include/asm/setup.h	2019-05-20 16:57:42.000000000 +0200
 @@ -62,6 +62,12 @@
  static inline void x86_ce4100_early_setup(void) { }
  #endif
@@ -88,9 +88,9 @@ diff -uNr linux-5.0.17/arch/x86/include/asm/setup.h ps4gentoo5.0.17-master/arch/
  #ifndef _SETUP
  
  #include <asm/espfix.h>
-diff -uNr linux-5.0.17/arch/x86/include/uapi/asm/bootparam.h ps4gentoo5.0.17-master/arch/x86/include/uapi/asm/bootparam.h
+diff -uNr linux-5.0.17/arch/x86/include/uapi/asm/bootparam.h ps4-5.0.17-master/arch/x86/include/uapi/asm/bootparam.h
 --- linux-5.0.17/arch/x86/include/uapi/asm/bootparam.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/include/uapi/asm/bootparam.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/include/uapi/asm/bootparam.h	2019-05-20 16:57:42.000000000 +0200
 @@ -242,6 +242,7 @@
  	X86_SUBARCH_XEN,
  	X86_SUBARCH_INTEL_MID,
@@ -99,9 +99,9 @@ diff -uNr linux-5.0.17/arch/x86/include/uapi/asm/bootparam.h ps4gentoo5.0.17-mas
  	X86_NR_SUBARCHS,
  };
  
-diff -uNr linux-5.0.17/arch/x86/Kconfig ps4gentoo5.0.17-master/arch/x86/Kconfig
+diff -uNr linux-5.0.17/arch/x86/Kconfig ps4-5.0.17-master/arch/x86/Kconfig
 --- linux-5.0.17/arch/x86/Kconfig	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/Kconfig	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/Kconfig	2019-05-20 16:57:42.000000000 +0200
 @@ -526,6 +526,14 @@
  	  Adds support for Numascale NumaChip large-SMP systems. Needed to
  	  enable more than ~168 cores.
@@ -117,9 +117,9 @@ diff -uNr linux-5.0.17/arch/x86/Kconfig ps4gentoo5.0.17-master/arch/x86/Kconfig
  
  config X86_VSMP
  	bool "ScaleMP vSMP"
-diff -uNr linux-5.0.17/arch/x86/kernel/amd_nb.c ps4gentoo5.0.17-master/arch/x86/kernel/amd_nb.c
+diff -uNr linux-5.0.17/arch/x86/kernel/amd_nb.c ps4-5.0.17-master/arch/x86/kernel/amd_nb.c
 --- linux-5.0.17/arch/x86/kernel/amd_nb.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/kernel/amd_nb.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/kernel/amd_nb.c	2019-05-20 16:57:42.000000000 +0200
 @@ -45,6 +45,7 @@
  	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_15H_M60H_NB_F3) },
  	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_16H_NB_F3) },
@@ -136,9 +136,9 @@ diff -uNr linux-5.0.17/arch/x86/kernel/amd_nb.c ps4gentoo5.0.17-master/arch/x86/
  	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_17H_DF_F4) },
  	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_17H_M10H_DF_F4) },
  	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_17H_M30H_DF_F4) },
-diff -uNr linux-5.0.17/arch/x86/kernel/apic/msi.c ps4gentoo5.0.17-master/arch/x86/kernel/apic/msi.c
+diff -uNr linux-5.0.17/arch/x86/kernel/apic/msi.c ps4-5.0.17-master/arch/x86/kernel/apic/msi.c
 --- linux-5.0.17/arch/x86/kernel/apic/msi.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/kernel/apic/msi.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/kernel/apic/msi.c	2019-05-20 16:57:42.000000000 +0200
 @@ -26,7 +26,7 @@
  
  static struct irq_domain *msi_default_domain;
@@ -148,9 +148,9 @@ diff -uNr linux-5.0.17/arch/x86/kernel/apic/msi.c ps4gentoo5.0.17-master/arch/x8
  {
  	struct irq_cfg *cfg = irqd_cfg(data);
  
-diff -uNr linux-5.0.17/arch/x86/kernel/head64.c ps4gentoo5.0.17-master/arch/x86/kernel/head64.c
+diff -uNr linux-5.0.17/arch/x86/kernel/head64.c ps4-5.0.17-master/arch/x86/kernel/head64.c
 --- linux-5.0.17/arch/x86/kernel/head64.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/kernel/head64.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/kernel/head64.c	2019-05-20 16:57:42.000000000 +0200
 @@ -466,6 +466,11 @@
  	default:
  		break;
@@ -164,9 +164,9 @@ diff -uNr linux-5.0.17/arch/x86/kernel/head64.c ps4gentoo5.0.17-master/arch/x86/
 +	}
  	start_kernel();
  }
-diff -uNr linux-5.0.17/arch/x86/platform/Makefile ps4gentoo5.0.17-master/arch/x86/platform/Makefile
+diff -uNr linux-5.0.17/arch/x86/platform/Makefile ps4-5.0.17-master/arch/x86/platform/Makefile
 --- linux-5.0.17/arch/x86/platform/Makefile	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/arch/x86/platform/Makefile	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/platform/Makefile	2019-05-20 16:57:42.000000000 +0200
 @@ -10,6 +10,7 @@
  obj-y	+= intel-mid/
  obj-y	+= intel-quark/
@@ -175,9 +175,9 @@ diff -uNr linux-5.0.17/arch/x86/platform/Makefile ps4gentoo5.0.17-master/arch/x8
  obj-y	+= scx200/
  obj-y	+= sfi/
  obj-y	+= ts5500/
-diff -uNr linux-5.0.17/arch/x86/platform/ps4/calibrate.c ps4gentoo5.0.17-master/arch/x86/platform/ps4/calibrate.c
+diff -uNr linux-5.0.17/arch/x86/platform/ps4/calibrate.c ps4-5.0.17-master/arch/x86/platform/ps4/calibrate.c
 --- linux-5.0.17/arch/x86/platform/ps4/calibrate.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/arch/x86/platform/ps4/calibrate.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/platform/ps4/calibrate.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,116 @@
 +/*
 + * calibrate.c: Sony PS4 TSC/LAPIC calibration
@@ -295,14 +295,14 @@ diff -uNr linux-5.0.17/arch/x86/platform/ps4/calibrate.c ps4gentoo5.0.17-master/
 +
 +	return (tsc_freq + 500) / 1000;
 +}
-diff -uNr linux-5.0.17/arch/x86/platform/ps4/Makefile ps4gentoo5.0.17-master/arch/x86/platform/ps4/Makefile
+diff -uNr linux-5.0.17/arch/x86/platform/ps4/Makefile ps4-5.0.17-master/arch/x86/platform/ps4/Makefile
 --- linux-5.0.17/arch/x86/platform/ps4/Makefile	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/arch/x86/platform/ps4/Makefile	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/platform/ps4/Makefile	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1 @@
 +obj-$(CONFIG_X86_PS4) += ps4.o calibrate.o
-diff -uNr linux-5.0.17/arch/x86/platform/ps4/ps4.c ps4gentoo5.0.17-master/arch/x86/platform/ps4/ps4.c
+diff -uNr linux-5.0.17/arch/x86/platform/ps4/ps4.c ps4-5.0.17-master/arch/x86/platform/ps4/ps4.c
 --- linux-5.0.17/arch/x86/platform/ps4/ps4.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/arch/x86/platform/ps4/ps4.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/arch/x86/platform/ps4/ps4.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,76 @@
 +/*
 + * ps4.c: Sony PS4 platform setup code
@@ -380,9 +380,9 @@ diff -uNr linux-5.0.17/arch/x86/platform/ps4/ps4.c ps4gentoo5.0.17-master/arch/x
 +	legacy_pic = &null_legacy_pic;
 +	machine_ops.emergency_restart = icc_reboot;
 +}
-diff -uNr linux-5.0.17/drivers/ata/ahci.c ps4gentoo5.0.17-master/drivers/ata/ahci.c
+diff -uNr linux-5.0.17/drivers/ata/ahci.c ps4-5.0.17-master/drivers/ata/ahci.c
 --- linux-5.0.17/drivers/ata/ahci.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/ata/ahci.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ata/ahci.c	2019-05-20 16:57:42.000000000 +0200
 @@ -50,6 +50,10 @@
  #include <linux/io-64-nonatomic-lo-hi.h>
  #include "ahci.h"
@@ -467,9 +467,9 @@ diff -uNr linux-5.0.17/drivers/ata/ahci.c ps4gentoo5.0.17-master/drivers/ata/ahc
  }
  
  module_pci_driver(ahci_pci_driver);
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c	2019-05-20 16:57:42.000000000 +0200
 @@ -76,6 +76,8 @@
  #ifdef CONFIG_DRM_AMDGPU_CIK
  	case CHIP_KAVERI:
@@ -479,9 +479,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.c ps4gentoo5.0.1
  		kfd2kgd = amdgpu_amdkfd_gfx_7_get_functions();
  		break;
  #endif
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c	2019-05-20 16:57:42.000000000 +0200
 @@ -1478,7 +1478,29 @@
  	.destroy = amdgpu_connector_destroy,
  	.force = amdgpu_connector_dvi_force,
@@ -559,9 +559,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.c ps4gentoo5
  			drm_object_attach_property(&amdgpu_connector->base.base,
  						      adev->mode_info.underscan_property,
  						      UNDERSCAN_OFF);
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c	2019-05-20 16:57:42.000000000 +0200
 @@ -78,6 +78,8 @@
  	"BONAIRE",
  	"KAVERI",
@@ -589,9 +589,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c ps4gentoo5.0.1
  		if ((adev->asic_type == CHIP_BONAIRE) || (adev->asic_type == CHIP_HAWAII))
  			adev->family = AMDGPU_FAMILY_CI;
  		else
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c	2019-05-20 16:57:42.000000000 +0200
 @@ -40,6 +40,9 @@
  
  #include "amdgpu_amdkfd.h"
@@ -632,9 +632,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c ps4gentoo5.0.17-m
  	dev = drm_dev_alloc(&kms_driver, &pdev->dev);
  	if (IS_ERR(dev))
  		return PTR_ERR(dev);
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c	2019-05-20 16:57:42.000000000 +0200
 @@ -32,6 +32,22 @@
  #include "atom.h"
  #include "atombios_encoders.h"
@@ -668,9 +668,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.c ps4gentoo5.0
  				drm_connector_attach_encoder(connector, encoder);
  				if (amdgpu_encoder->devices & (ATOM_DEVICE_LCD_SUPPORT)) {
  					amdgpu_atombios_encoder_init_backlight(amdgpu_encoder, connector);
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu.h ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu.h
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu.h ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu.h
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu.h	2019-05-20 16:57:42.000000000 +0200
 @@ -199,7 +199,8 @@
  /* max cursor sizes (in pixels) */
  #define CIK_CURSOR_WIDTH 128
@@ -681,9 +681,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu.h ps4gentoo5.0.17-maste
  struct amdgpu_device;
  struct amdgpu_ib;
  struct amdgpu_cs_parser;
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c	2019-05-20 16:57:42.000000000 +0200
 @@ -349,7 +349,8 @@
  		tmo_gfx = AMDGPU_IB_TEST_GFX_XGMI_TIMEOUT;
  	}
@@ -694,9 +694,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c ps4gentoo5.0.17-ma
  		struct amdgpu_ring *ring = adev->rings[i];
  		long tmo;
  
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c	2019-05-20 16:57:42.000000000 +0200
 @@ -286,6 +286,8 @@
  	case CHIP_KABINI:
  	case CHIP_HAWAII:
@@ -706,9 +706,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c ps4gentoo5.0.17
  		return AMDGPU_FW_LOAD_DIRECT;
  #endif
  	case CHIP_TOPAZ:
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_dp.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_dp.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_dp.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_dp.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_dp.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_dp.c	2019-09-04 16:55:04.885432333 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_dp.c	2019-09-05 15:30:41.644183228 +0200
 @@ -261,12 +261,19 @@
  		amdgpu_atombios_dp_convert_bpc_to_bpp(amdgpu_connector_get_monitor_bpc(connector));
  	static const unsigned link_rates[3] = { 162000, 270000, 540000 };
@@ -739,9 +739,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_dp.c ps4gentoo5.0.17-
  				max_pix_clock = (lane_num * link_rates[i] * 8) / bpp;
  				if (max_pix_clock >= pix_clock) {
  					*dp_lanes = lane_num;
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c	2019-09-04 16:55:20.226431915 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c	2019-09-05 15:30:55.011039545 +0200
 @@ -445,9 +445,11 @@
  	struct drm_connector *connector;
  	struct amdgpu_connector *amdgpu_connector;
@@ -756,18 +756,18 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c ps4gentoo5
  		return ATOM_ENCODER_MODE_DP;
  
  	/* DVO is always DVO */
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ci_dpm.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/ci_dpm.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ci_dpm.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/ci_dpm.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ci_dpm.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/ci_dpm.c	2019-09-04 16:56:47.900244526 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/ci_dpm.c	2019-09-05 15:31:23.178111680 +0200
 @@ -341,6 +341,7 @@
  	case 0x6658:
  	case 0x665C:
  	case 0x665D:
-+    	case 0x9922:
++    case 0x9922:
  	default:
  		pi->powertune_defaults = &defaults_bonaire_xt;
  		break;
-@@ -3550,12 +3551,12 @@
+@@ -3550,7 +3551,7 @@
  				  &pi->dpm_table.pcie_speed_table,
  				  SMU7_MAX_LEVELS_LINK);
  
@@ -776,12 +776,6 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ci_dpm.c ps4gentoo5.0.17-maste
  		ci_setup_pcie_table_entry(&pi->dpm_table.pcie_speed_table, 0,
  					  pi->pcie_gen_powersaving.min,
  					  pi->pcie_lane_powersaving.max);
- 	else
--		ci_setup_pcie_table_entry(&pi->dpm_table.pcie_speed_table, 0,
-+    	ci_setup_pcie_table_entry(&pi->dpm_table.pcie_speed_table, 0,
- 					  pi->pcie_gen_powersaving.min,
- 					  pi->pcie_lane_powersaving.min);
- 	ci_setup_pcie_table_entry(&pi->dpm_table.pcie_speed_table, 1,
 @@ -5802,6 +5803,12 @@
  			chip_name = "bonaire_k";
  		else
@@ -795,9 +789,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ci_dpm.c ps4gentoo5.0.17-maste
  		break;
  	case CHIP_HAWAII:
  		if (adev->pdev->revision == 0x80)
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik.c	2019-05-20 16:57:42.000000000 +0200
 @@ -747,6 +747,206 @@
  	0xc24d, 0xffffffff, 0x00000000
  };
@@ -1144,9 +1138,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik.c ps4gentoo5.0.17-master/d
  	default:
  		/* FIXME: not supported yet */
  		return -EINVAL;
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik_sdma.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik_sdma.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik_sdma.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik_sdma.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik_sdma.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik_sdma.c	2019-09-04 16:57:39.092493123 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik_sdma.c	2019-09-05 15:31:59.525301566 +0200
 @@ -64,7 +64,10 @@
  MODULE_FIRMWARE("amdgpu/kabini_sdma1.bin");
  MODULE_FIRMWARE("amdgpu/mullins_sdma.bin");
@@ -1193,9 +1187,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik_sdma.c ps4gentoo5.0.17-mas
  	amdgpu_ring_commit(ring);
  
  	for (i = 0; i < adev->usec_timeout; i++) {
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c	2019-09-04 16:58:18.155347059 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c	2019-09-05 15:32:26.429022183 +0200
 @@ -389,8 +389,10 @@
  	switch (adev->asic_type) {
  	case CHIP_BONAIRE:
@@ -1301,9 +1295,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c ps4gentoo5.0.17-mas
  	}
  
  	dce_v8_0_pageflip_interrupt_init(adev);
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_virtual.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_virtual.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_virtual.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_virtual.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_virtual.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_virtual.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/dce_virtual.c	2019-05-20 16:57:42.000000000 +0200
 @@ -432,6 +432,8 @@
  	case CHIP_KAVERI:
  	case CHIP_KABINI:
@@ -1313,9 +1307,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/dce_virtual.c ps4gentoo5.0.17-
  		dce_v8_0_disable_dce(adev);
  		break;
  #endif
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c	2019-09-04 17:02:36.371050022 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c	2019-09-05 15:34:22.983978646 +0200
 @@ -88,6 +88,20 @@
  MODULE_FIRMWARE("amdgpu/mullins_rlc.bin");
  MODULE_FIRMWARE("amdgpu/mullins_mec.bin");
@@ -1949,7 +1943,23 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  	default:
  		DRM_ERROR("unknown asic: 0x%x\n", adev->asic_type);
  		break;
-@@ -2701,7 +3290,7 @@
+@@ -2339,10 +2928,12 @@
+ 		goto err2;
+ 	}
+ 	tmp = RREG32(scratch);
+-	if (tmp == 0xDEADBEEF)
++	if (tmp == 0xDEADBEEF) {
++		DRM_INFO("ib test on ring %d succeeded in %d us\n", ring->idx, r);
+ 		r = 0;
+-	else
+-		r = -EINVAL;
++	} else {
++		//r = -EINVAL;
++	}
+ 
+ err2:
+ 	amdgpu_ib_free(adev, &ib, NULL);
+@@ -2701,7 +3292,7 @@
  		WREG32(mmCP_MEC_ME1_UCODE_DATA, le32_to_cpup(fw_data++));
  	WREG32(mmCP_MEC_ME1_UCODE_ADDR, 0);
  
@@ -1958,7 +1968,7 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  		const struct gfx_firmware_header_v1_0 *mec2_hdr;
  
  		if (!adev->gfx.mec2_fw)
-@@ -3264,6 +3853,14 @@
+@@ -3264,6 +3855,14 @@
  			adev->gfx.rlc.reg_list = spectre_rlc_save_restore_register_list;
  			adev->gfx.rlc.reg_list_size =
  				(u32)ARRAY_SIZE(spectre_rlc_save_restore_register_list);
@@ -1973,7 +1983,7 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  		} else {
  			adev->gfx.rlc.reg_list = kalindi_rlc_save_restore_register_list;
  			adev->gfx.rlc.reg_list_size =
-@@ -3723,7 +4320,7 @@
+@@ -3723,7 +4322,7 @@
  
  static int gfx_v7_0_cp_pg_table_num(struct amdgpu_device *adev)
  {
@@ -1982,7 +1992,7 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  		return 5;
  	else
  		return 4;
-@@ -3972,6 +4569,14 @@
+@@ -3972,6 +4571,14 @@
  		buffer[count++] = cpu_to_le32(0x3a00161a);
  		buffer[count++] = cpu_to_le32(0x0000002e);
  		break;
@@ -1997,7 +2007,7 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  	default:
  		buffer[count++] = cpu_to_le32(0x00000000);
  		buffer[count++] = cpu_to_le32(0x00000000);
-@@ -4268,6 +4873,41 @@
+@@ -4268,6 +4875,41 @@
  		adev->gfx.config.sc_earlyz_tile_fifo_size = 0x130;
  		gb_addr_config = BONAIRE_GB_ADDR_CONFIG_GOLDEN;
  		break;
@@ -2039,7 +2049,7 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  	case CHIP_KABINI:
  	case CHIP_MULLINS:
  	default:
-@@ -4388,6 +5028,8 @@
+@@ -4388,6 +5030,8 @@
  
  	switch (adev->asic_type) {
  	case CHIP_KAVERI:
@@ -2048,7 +2058,15 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  		adev->gfx.mec.num_mec = 2;
  		break;
  	case CHIP_BONAIRE:
-@@ -5093,6 +5735,9 @@
+@@ -4826,7 +5470,6 @@
+ 	struct amdgpu_ring *ring;
+ 	int i;
+ 
+-	DRM_DEBUG("IH: CP EOP\n");
+ 	me_id = (entry->ring_id & 0x0c) >> 2;
+ 	pipe_id = (entry->ring_id & 0x03) >> 0;
+ 	switch (me_id) {
+@@ -5093,6 +5736,9 @@
  	else
  		ao_cu_num = adev->gfx.config.max_cu_per_sh;
  
@@ -2058,9 +2076,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c ps4gentoo5.0.17-mas
  	memset(cu_info, 0, sizeof(*cu_info));
  
  	amdgpu_gfx_parse_disable_cu(disable_masks, 4, 2);
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c	2019-05-20 16:57:42.000000000 +0200
 @@ -147,6 +147,8 @@
  	case CHIP_KAVERI:
  	case CHIP_KABINI:
@@ -2101,9 +2119,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c ps4gentoo5.0.17-mas
  	/* enable context1-15 */
  	WREG32(mmVM_CONTEXT1_PROTECTION_FAULT_DEFAULT_ADDR,
  	       (u32)(adev->dummy_page_addr >> 12));
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/Makefile ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/Makefile
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/Makefile ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/Makefile
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/Makefile	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/Makefile	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/Makefile	2019-05-20 16:57:42.000000000 +0200
 @@ -173,7 +173,7 @@
  amdgpu-$(CONFIG_VGA_SWITCHEROO) += amdgpu_atpx_handler.o
  amdgpu-$(CONFIG_ACPI) += amdgpu_acpi.o
@@ -2113,9 +2131,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/Makefile ps4gentoo5.0.17-maste
  include $(FULL_AMD_PATH)/powerplay/Makefile
  
  amdgpu-y += $(AMD_POWERPLAY_FILES)
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,759 @@
 +/*
 + * Panasonic MN86471A DP->HDMI bridge driver (via PS4 Aeolia ICC interface)
@@ -2876,9 +2894,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ps4_bridge.c ps4gentoo5.0.17-m
 +
 +	return 0;
 +}
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdkfd/kfd_device.c ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdkfd/kfd_device.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdkfd/kfd_device.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdkfd/kfd_device.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdkfd/kfd_device.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/amdkfd/kfd_device.c	2019-09-04 17:03:27.856778617 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdkfd/kfd_device.c	2019-09-05 15:35:05.811235001 +0200
 @@ -322,6 +322,10 @@
  	{ 0x15DD, &raven_device_info },		/* Raven */
  	{ 0x15D8, &raven_device_info },		/* Raven */
@@ -2890,9 +2908,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdkfd/kfd_device.c ps4gentoo5.0.17-m
  	{ 0x67A0, &hawaii_device_info },	/* Hawaii */
  	{ 0x67A1, &hawaii_device_info },	/* Hawaii */
  	{ 0x67A2, &hawaii_device_info },	/* Hawaii */
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h ps4gentoo5.0.17-master/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h
+diff -uNr linux-5.0.17/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h ps4-5.0.17-master/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h
 --- linux-5.0.17/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h	2019-05-20 16:57:42.000000000 +0200
 @@ -589,8 +589,24 @@
  #define mmVM_CONTEXT13_PAGE_TABLE_BASE_ADDR                                     0x513
  #define mmVM_CONTEXT14_PAGE_TABLE_BASE_ADDR                                     0x514
@@ -2939,9 +2957,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/include/asic_reg/gmc/gmc_7_1_d.h ps4g
  #define mmVM_DEBUG                                                              0x56f
  #define mmVM_L2_CG                                                              0x570
  #define mmVM_L2_BANK_SELECT_MASKA                                               0x572
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/atombios_encoders.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/atombios_encoders.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/atombios_encoders.c ps4-5.0.17-master/drivers/gpu/drm/radeon/atombios_encoders.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/atombios_encoders.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/atombios_encoders.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/atombios_encoders.c	2019-05-20 16:57:42.000000000 +0200
 @@ -689,7 +689,7 @@
  	if (radeon_encoder->is_mst_encoder || radeon_encoder->offset)
  		return ATOM_ENCODER_MODE_DP_MST;
@@ -2951,9 +2969,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/atombios_encoders.c ps4gentoo5.0.1
  		return ATOM_ENCODER_MODE_DP;
  
  	/* DVO is always DVO */
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/cik.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik.c ps4-5.0.17-master/drivers/gpu/drm/radeon/cik.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/cik.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/cik.c	2019-09-04 17:09:25.638903835 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/cik.c	2019-09-05 15:38:26.346581972 +0200
 @@ -120,6 +120,13 @@
  MODULE_FIRMWARE("radeon/mullins_rlc.bin");
  MODULE_FIRMWARE("radeon/mullins_sdma.bin");
@@ -3644,10 +3662,11 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik.c ps4gentoo5.0.17-master/drive
  			WREG32(CP_ME_RAM_DATA, be32_to_cpup(fw_data++));
  		WREG32(CP_ME_RAM_WADDR, 0);
  	}
-@@ -4945,6 +5568,20 @@
+@@ -4945,7 +5568,21 @@
  		 RREG32(VM_CONTEXT1_PROTECTION_FAULT_ADDR));
  	dev_info(rdev->dev, "  VM_CONTEXT1_PROTECTION_FAULT_STATUS 0x%08X\n",
  		 RREG32(VM_CONTEXT1_PROTECTION_FAULT_STATUS));
+-
 +	 dev_info(rdev->dev, "  VM_CONTEXT0_CNTL 0x%08X\n",
 +			 RREG32(VM_CONTEXT0_CNTL));
 +	 dev_info(rdev->dev, "  VM_CONTEXT1_CNTL 0x%08X\n",
@@ -3662,9 +3681,10 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik.c ps4gentoo5.0.17-master/drive
 +		 	RREG32(VM_CONTEXT0_PAGE_TABLE_BASE_ADDR));
 +	dev_info(rdev->dev, "  VM_DEBUG	0x%08X\n",
 +		 	RREG32(0x15bc));
- 
++//VM_CONTEXT0_PAGE_TABLE_BASE_ADDR
  	/* disable CG/PG */
  	cik_fini_pg(rdev);
+ 	cik_fini_cg(rdev);
 @@ -5454,8 +6091,8 @@
  	       CONTEXT1_IDENTITY_ACCESS_MODE(1));
  	WREG32(VM_L2_CNTL2, INVALIDATE_ALL_L1_TLBS | INVALIDATE_L2_CACHE);
@@ -3920,9 +3940,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik.c ps4gentoo5.0.17-master/drive
  
  	if (!rdev->mode_info.mode_config_initialized)
  		return;
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cikd.h ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/cikd.h
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cikd.h ps4-5.0.17-master/drivers/gpu/drm/radeon/cikd.h
 --- linux-5.0.17/drivers/gpu/drm/radeon/cikd.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/cikd.h	2019-09-04 17:11:05.155301146 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/cikd.h	2019-09-05 15:38:51.193607251 +0200
 @@ -534,10 +534,29 @@
  #define	VM_CONTEXT13_PAGE_TABLE_BASE_ADDR		0x144c
  #define	VM_CONTEXT14_PAGE_TABLE_BASE_ADDR		0x1450
@@ -3967,10 +3987,10 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cikd.h ps4gentoo5.0.17-master/driv
  #define	VM_CONTEXT0_PAGE_TABLE_END_ADDR			0x157C
  #define	VM_CONTEXT1_PAGE_TABLE_END_ADDR			0x1580
  
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik_sdma.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/cik_sdma.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik_sdma.c ps4-5.0.17-master/drivers/gpu/drm/radeon/cik_sdma.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/cik_sdma.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/cik_sdma.c	2019-09-04 17:10:43.414436739 +0200
-@@ -141,11 +141,22 @@
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/cik_sdma.c	2019-09-05 15:38:39.306769023 +0200
+@@ -141,11 +141,23 @@
  		while ((next_rptr & 7) != 4)
  			next_rptr++;
  		next_rptr += 4;
@@ -3989,7 +4009,8 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik_sdma.c ps4gentoo5.0.17-master/
 +			radeon_ring_write(ring, next_rptr);
 +			radeon_ring_write(ring, 4);
 +		} else {
-+			radeon_ring_write(ring, SDMA_PACKET(SDMA_OPCODE_WRITE, SDMA_WRITE_SUB_OPCODE_LINEAR, 0));
++			radeon_ring_write(ring, SDMA_PACKET(SDMA_OPCODE_WRITE,
++						SDMA_WRITE_SUB_OPCODE_LINEAR, 0));
 +			radeon_ring_write(ring, ring->next_rptr_gpu_addr & 0xfffffffc);
 +			radeon_ring_write(ring, upper_32_bits(ring->next_rptr_gpu_addr));
 +			radeon_ring_write(ring, 1); /* number of DWs to follow */
@@ -3998,7 +4019,7 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik_sdma.c ps4gentoo5.0.17-master/
  	}
  
  	/* IB packet must end on a 8 DW boundary */
-@@ -666,11 +677,23 @@
+@@ -666,11 +678,23 @@
  		DRM_ERROR("radeon: dma failed to lock ring %d (%d).\n", ring->idx, r);
  		return r;
  	}
@@ -4027,7 +4048,7 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik_sdma.c ps4gentoo5.0.17-master/
  	radeon_ring_unlock_commit(rdev, ring, false);
  
  	for (i = 0; i < rdev->usec_timeout; i++) {
-@@ -685,7 +708,7 @@
+@@ -685,7 +709,7 @@
  	} else {
  		DRM_ERROR("radeon: ring %d test failed (0x%08X)\n",
  			  ring->idx, tmp);
@@ -4036,14 +4057,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/cik_sdma.c ps4gentoo5.0.17-master/
  	}
  	return r;
  }
-@@ -998,4 +1021,3 @@
- 	radeon_ring_write(ring, 0); /* mask */
- 	radeon_ring_write(ring, (0xfff << 16) | 10); /* retry count, poll interval */
- }
--
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/Makefile ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/Makefile
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/Makefile ps4-5.0.17-master/drivers/gpu/drm/radeon/Makefile
 --- linux-5.0.17/drivers/gpu/drm/radeon/Makefile	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/Makefile	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/Makefile	2019-05-20 16:57:42.000000000 +0200
 @@ -82,6 +82,8 @@
  
  radeon-$(CONFIG_MMU_NOTIFIER) += radeon_mn.o
@@ -4053,9 +4069,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/Makefile ps4gentoo5.0.17-master/dr
  # add async DMA block
  radeon-y += \
  	r600_dma.o \
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/ps4_bridge.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/ps4_bridge.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/ps4_bridge.c ps4-5.0.17-master/drivers/gpu/drm/radeon/ps4_bridge.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/ps4_bridge.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/ps4_bridge.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/ps4_bridge.c	2019-09-05 16:03:17.707200625 +0200
 @@ -0,0 +1,756 @@
 +/*
 + * Panasonic MN86471A / MN864729 DP->HDMI bridge driver (via PS4 Aeolia ICC interface)
@@ -4813,9 +4829,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/ps4_bridge.c ps4gentoo5.0.17-maste
 +
 +	return 0;
 +}
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_asic.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_asic.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_asic.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_asic.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_asic.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_asic.c	2019-09-04 17:12:06.312529479 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_asic.c	2019-09-05 15:39:46.808624433 +0200
 @@ -2242,8 +2242,10 @@
  		.get_backlight_level = &atombios_get_backlight_level,
  	},
@@ -4857,9 +4873,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_asic.c ps4gentoo5.0.17-mast
  		break;
  	default:
  		/* FIXME: not supported yet */
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_audio.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_audio.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_audio.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_audio.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_audio.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_audio.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_audio.c	2019-05-20 16:57:42.000000000 +0200
 @@ -336,8 +336,13 @@
  
  	/* disable audio.  it will be set up later */
@@ -4875,9 +4891,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_audio.c ps4gentoo5.0.17-mas
  	return 0;
  }
  
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_connectors.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_connectors.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_connectors.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_connectors.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_connectors.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_connectors.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_connectors.c	2019-05-20 16:57:42.000000000 +0200
 @@ -1528,6 +1528,29 @@
  	.force = radeon_dvi_force,
  };
@@ -4956,9 +4972,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_connectors.c ps4gentoo5.0.1
  			drm_object_attach_property(&radeon_connector->base.base,
  						      rdev->mode_info.underscan_property,
  						      UNDERSCAN_OFF);
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_device.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_device.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_device.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_device.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_device.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_device.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_device.c	2019-05-20 16:57:42.000000000 +0200
 @@ -100,6 +100,7 @@
  	"BONAIRE",
  	"KAVERI",
@@ -4967,9 +4983,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_device.c ps4gentoo5.0.17-ma
  	"HAWAII",
  	"MULLINS",
  	"LAST",
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_display.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_display.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_display.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_display.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_display.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_display.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_display.c	2019-05-20 16:57:42.000000000 +0200
 @@ -679,7 +679,7 @@
  	radeon_crtc->flip_queue = alloc_workqueue("radeon-crtc", WQ_HIGHPRI, 0);
  	rdev->mode_info.crtcs[index] = radeon_crtc;
@@ -4979,9 +4995,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_display.c ps4gentoo5.0.17-m
  		radeon_crtc->max_cursor_width = CIK_CURSOR_WIDTH;
  		radeon_crtc->max_cursor_height = CIK_CURSOR_HEIGHT;
  	} else {
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_drv.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_drv.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_drv.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_drv.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_drv.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_drv.c	2019-09-04 17:13:26.809422285 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_drv.c	2019-09-05 15:40:36.754970009 +0200
 @@ -33,6 +33,10 @@
  #include <drm/radeon_drm.h>
  #include "radeon_drv.h"
@@ -5010,9 +5026,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_drv.c ps4gentoo5.0.17-maste
  	return drm_get_pci_dev(pdev, ent, &kms_driver);
  }
  
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_encoders.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_encoders.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_encoders.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_encoders.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_encoders.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_encoders.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_encoders.c	2019-05-20 16:57:42.000000000 +0200
 @@ -197,6 +197,21 @@
  	}
  }
@@ -5045,9 +5061,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_encoders.c ps4gentoo5.0.17-
  				drm_connector_attach_encoder(connector, encoder);
  				if (radeon_encoder->devices & (ATOM_DEVICE_LCD_SUPPORT))
  					radeon_encoder_add_backlight(radeon_encoder, connector);
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_family.h ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_family.h
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_family.h ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_family.h
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_family.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_family.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_family.h	2019-05-20 16:57:42.000000000 +0200
 @@ -96,6 +96,7 @@
  	CHIP_BONAIRE,
  	CHIP_KAVERI,
@@ -5056,22 +5072,22 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_family.h ps4gentoo5.0.17-ma
  	CHIP_HAWAII,
  	CHIP_MULLINS,
  	CHIP_LAST,
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon.h ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon.h
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon.h ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon.h
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon.h	2019-09-04 17:11:44.521640073 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon.h	2019-09-05 15:39:32.477717741 +0200
 @@ -2651,7 +2651,8 @@
  #define ASIC_IS_DCE81(rdev) ((rdev->family == CHIP_KAVERI))
  #define ASIC_IS_DCE82(rdev) ((rdev->family == CHIP_BONAIRE))
  #define ASIC_IS_DCE83(rdev) ((rdev->family == CHIP_KABINI) || \
 -			     (rdev->family == CHIP_MULLINS))
-+			    (rdev->family == CHIP_MULLINS) || \
-+			    (rdev->family == CHIP_LIVERPOOL))
++			     (rdev->family == CHIP_MULLINS) || \
++			     (rdev->family == CHIP_LIVERPOOL))
  
  #define ASIC_IS_LOMBOK(rdev) ((rdev->ddev->pdev->device == 0x6849) || \
  			      (rdev->ddev->pdev->device == 0x6850) || \
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_ib.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_ib.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_ib.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_ib.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_ib.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_ib.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_ib.c	2019-05-20 16:57:42.000000000 +0200
 @@ -259,7 +259,7 @@
  	unsigned i;
  	int r;
@@ -5081,9 +5097,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_ib.c ps4gentoo5.0.17-master
  		struct radeon_ring *ring = &rdev->ring[i];
  
  		if (!ring->ready)
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_pm.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_pm.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_pm.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_pm.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_pm.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_pm.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_pm.c	2019-05-20 16:57:42.000000000 +0200
 @@ -1503,6 +1503,7 @@
  	case CHIP_BONAIRE:
  	case CHIP_KABINI:
@@ -5092,9 +5108,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_pm.c ps4gentoo5.0.17-master
  	case CHIP_HAWAII:
  	case CHIP_MULLINS:
  		/* DPM requires the RLC, RV770+ dGPU requires SMC */
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_ucode.h ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_ucode.h
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_ucode.h ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_ucode.h
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_ucode.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_ucode.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_ucode.h	2019-05-20 16:57:42.000000000 +0200
 @@ -38,6 +38,8 @@
  #define CIK_PFP_UCODE_SIZE           2144
  #define CIK_ME_UCODE_SIZE            2144
@@ -5112,9 +5128,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_ucode.h ps4gentoo5.0.17-mas
  
  /* MC */
  #define BTC_MC_UCODE_SIZE            6024
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_uvd.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_uvd.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_uvd.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_uvd.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_uvd.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_uvd.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_uvd.c	2019-05-20 16:57:42.000000000 +0200
 @@ -124,6 +124,7 @@
  	case CHIP_BONAIRE:
  	case CHIP_KABINI:
@@ -5123,9 +5139,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_uvd.c ps4gentoo5.0.17-maste
  	case CHIP_HAWAII:
  	case CHIP_MULLINS:
  		legacy_fw_name = FIRMWARE_BONAIRE_LEGACY;
-diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_vce.c ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_vce.c
+diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_vce.c ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_vce.c
 --- linux-5.0.17/drivers/gpu/drm/radeon/radeon_vce.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/gpu/drm/radeon/radeon_vce.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/gpu/drm/radeon/radeon_vce.c	2019-05-20 16:57:42.000000000 +0200
 @@ -76,6 +76,7 @@
  	case CHIP_BONAIRE:
  	case CHIP_KAVERI:
@@ -5134,9 +5150,9 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/radeon/radeon_vce.c ps4gentoo5.0.17-maste
  	case CHIP_HAWAII:
  	case CHIP_MULLINS:
  		fw_name = FIRMWARE_BONAIRE;
-diff -uNr linux-5.0.17/drivers/hwmon/fam15h_power.c ps4gentoo5.0.17-master/drivers/hwmon/fam15h_power.c
+diff -uNr linux-5.0.17/drivers/hwmon/fam15h_power.c ps4-5.0.17-master/drivers/hwmon/fam15h_power.c
 --- linux-5.0.17/drivers/hwmon/fam15h_power.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/hwmon/fam15h_power.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/hwmon/fam15h_power.c	2019-05-20 16:57:42.000000000 +0200
 @@ -502,6 +502,7 @@
  	{ PCI_VDEVICE(AMD, PCI_DEVICE_ID_AMD_15H_M70H_NB_F4) },
  	{ PCI_VDEVICE(AMD, PCI_DEVICE_ID_AMD_16H_NB_F4) },
@@ -5145,9 +5161,9 @@ diff -uNr linux-5.0.17/drivers/hwmon/fam15h_power.c ps4gentoo5.0.17-master/drive
  	{}
  };
  MODULE_DEVICE_TABLE(pci, fam15h_power_id_table);
-diff -uNr linux-5.0.17/drivers/hwmon/k10temp.c ps4gentoo5.0.17-master/drivers/hwmon/k10temp.c
+diff -uNr linux-5.0.17/drivers/hwmon/k10temp.c ps4-5.0.17-master/drivers/hwmon/k10temp.c
 --- linux-5.0.17/drivers/hwmon/k10temp.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/hwmon/k10temp.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/hwmon/k10temp.c	2019-05-20 16:57:42.000000000 +0200
 @@ -354,6 +354,7 @@
  	{ PCI_VDEVICE(AMD, PCI_DEVICE_ID_AMD_15H_NB_F3) },
  	{ PCI_VDEVICE(AMD, PCI_DEVICE_ID_AMD_15H_M10H_F3) },
@@ -5156,9 +5172,9 @@ diff -uNr linux-5.0.17/drivers/hwmon/k10temp.c ps4gentoo5.0.17-master/drivers/hw
  	{ PCI_VDEVICE(AMD, PCI_DEVICE_ID_AMD_15H_M60H_NB_F3) },
  	{ PCI_VDEVICE(AMD, PCI_DEVICE_ID_AMD_15H_M70H_NB_F3) },
  	{ PCI_VDEVICE(AMD, PCI_DEVICE_ID_AMD_16H_NB_F3) },
-diff -uNr linux-5.0.17/drivers/iommu/amd_iommu_init.c ps4gentoo5.0.17-master/drivers/iommu/amd_iommu_init.c
+diff -uNr linux-5.0.17/drivers/iommu/amd_iommu_init.c ps4-5.0.17-master/drivers/iommu/amd_iommu_init.c
 --- linux-5.0.17/drivers/iommu/amd_iommu_init.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/iommu/amd_iommu_init.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/iommu/amd_iommu_init.c	2019-05-20 16:57:42.000000000 +0200
 @@ -2353,6 +2353,7 @@
  
  #endif
@@ -5187,9 +5203,9 @@ diff -uNr linux-5.0.17/drivers/iommu/amd_iommu_init.c ps4gentoo5.0.17-master/dri
  
  	if (amd_iommu_irq_remap) {
  		/*
-diff -uNr linux-5.0.17/drivers/Makefile ps4gentoo5.0.17-master/drivers/Makefile
+diff -uNr linux-5.0.17/drivers/Makefile ps4-5.0.17-master/drivers/Makefile
 --- linux-5.0.17/drivers/Makefile	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/Makefile	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/Makefile	2019-05-20 16:57:42.000000000 +0200
 @@ -85,6 +85,7 @@
  obj-$(CONFIG_SPMI)		+= spmi/
  obj-$(CONFIG_HSI)		+= hsi/
@@ -5198,9 +5214,9 @@ diff -uNr linux-5.0.17/drivers/Makefile ps4gentoo5.0.17-master/drivers/Makefile
  obj-y				+= net/
  obj-$(CONFIG_ATM)		+= atm/
  obj-$(CONFIG_FUSION)		+= message/
-diff -uNr linux-5.0.17/drivers/mmc/host/sdhci-pci-core.c ps4gentoo5.0.17-master/drivers/mmc/host/sdhci-pci-core.c
+diff -uNr linux-5.0.17/drivers/mmc/host/sdhci-pci-core.c ps4-5.0.17-master/drivers/mmc/host/sdhci-pci-core.c
 --- linux-5.0.17/drivers/mmc/host/sdhci-pci-core.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/mmc/host/sdhci-pci-core.c	2019-09-04 17:16:34.599932158 +0200
++++ ps4-5.0.17-master/drivers/mmc/host/sdhci-pci-core.c	2019-09-05 15:42:02.516181789 +0200
 @@ -32,6 +32,9 @@
  #include <linux/acpi.h>
  
@@ -5322,9 +5338,9 @@ diff -uNr linux-5.0.17/drivers/mmc/host/sdhci-pci-core.c ps4gentoo5.0.17-master/
  		if (IS_ERR(slot)) {
  			for (i--; i >= 0; i--)
  				sdhci_pci_remove_slot(chip->slots[i]);
-diff -uNr linux-5.0.17/drivers/mmc/host/sdhci-pci.h ps4gentoo5.0.17-master/drivers/mmc/host/sdhci-pci.h
+diff -uNr linux-5.0.17/drivers/mmc/host/sdhci-pci.h ps4-5.0.17-master/drivers/mmc/host/sdhci-pci.h
 --- linux-5.0.17/drivers/mmc/host/sdhci-pci.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/mmc/host/sdhci-pci.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/mmc/host/sdhci-pci.h	2019-05-20 16:57:42.000000000 +0200
 @@ -126,7 +126,7 @@
  	int			(*probe_slot) (struct sdhci_pci_slot *);
  	int			(*add_host) (struct sdhci_pci_slot *);
@@ -5342,9 +5358,9 @@ diff -uNr linux-5.0.17/drivers/mmc/host/sdhci-pci.h ps4gentoo5.0.17-master/drive
  	struct sdhci_pci_slot	*slots[MAX_SLOTS]; /* Pointers to host slots */
  };
  
-diff -uNr linux-5.0.17/drivers/net/ethernet/marvell/sky2.c ps4gentoo5.0.17-master/drivers/net/ethernet/marvell/sky2.c
+diff -uNr linux-5.0.17/drivers/net/ethernet/marvell/sky2.c ps4-5.0.17-master/drivers/net/ethernet/marvell/sky2.c
 --- linux-5.0.17/drivers/net/ethernet/marvell/sky2.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/net/ethernet/marvell/sky2.c	2019-09-04 17:17:24.808355796 +0200
++++ ps4-5.0.17-master/drivers/net/ethernet/marvell/sky2.c	2019-05-20 16:57:42.000000000 +0200
 @@ -50,6 +50,11 @@
  
  #include <asm/irq.h>
@@ -5382,8 +5398,8 @@ diff -uNr linux-5.0.17/drivers/net/ethernet/marvell/sky2.c ps4gentoo5.0.17-maste
  
 -	gma_write16(hw, port, GM_SMI_CTRL, GM_SMI_CT_PHY_AD(PHY_ADDR_MARV)
 -		    | GM_SMI_CT_REG_AD(reg) | GM_SMI_CT_OP_RD);
-+	gma_write16(hw, port, GM_SMI_CTRL, GM_SMI_CT_PHY_AD(hw->phy_addr)
-+		    || GM_SMI_CT_REG_AD(reg) | GM_SMI_CT_OP_RD);
++  gma_write16(hw, port, GM_SMI_CTRL, GM_SMI_CT_PHY_AD(hw->phy_addr)
++   		    | GM_SMI_CT_REG_AD(reg) | GM_SMI_CT_OP_RD);
 +
  
  	for (i = 0; i < PHY_RETRIES; i++) {
@@ -5605,9 +5621,9 @@ diff -uNr linux-5.0.17/drivers/net/ethernet/marvell/sky2.c ps4gentoo5.0.17-maste
  	if (hw->flags & SKY2_HW_USE_MSI)
  		pci_disable_msi(pdev);
  	pci_free_consistent(pdev, hw->st_size * sizeof(struct sky2_status_le),
-diff -uNr linux-5.0.17/drivers/net/ethernet/marvell/sky2.h ps4gentoo5.0.17-master/drivers/net/ethernet/marvell/sky2.h
+diff -uNr linux-5.0.17/drivers/net/ethernet/marvell/sky2.h ps4-5.0.17-master/drivers/net/ethernet/marvell/sky2.h
 --- linux-5.0.17/drivers/net/ethernet/marvell/sky2.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/net/ethernet/marvell/sky2.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/net/ethernet/marvell/sky2.h	2019-05-20 16:57:42.000000000 +0200
 @@ -2294,7 +2294,7 @@
  #define SKY2_HW_VLAN_BROKEN     0x00000200
  #define SKY2_HW_RSS_CHKSUM	0x00000400	/* RSS requires chksum */
@@ -5626,9 +5642,9 @@ diff -uNr linux-5.0.17/drivers/net/ethernet/marvell/sky2.h ps4gentoo5.0.17-maste
  	char		     irq_name[0];
  };
  
-diff -uNr linux-5.0.17/drivers/pci/probe.c ps4gentoo5.0.17-master/drivers/pci/probe.c
+diff -uNr linux-5.0.17/drivers/pci/probe.c ps4-5.0.17-master/drivers/pci/probe.c
 --- linux-5.0.17/drivers/pci/probe.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/pci/probe.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/pci/probe.c	2019-05-20 16:57:42.000000000 +0200
 @@ -2549,6 +2549,9 @@
  	return 0;
  }
@@ -5669,9 +5685,9 @@ diff -uNr linux-5.0.17/drivers/pci/probe.c ps4gentoo5.0.17-master/drivers/pci/pr
  		dev = pci_scan_single_device(bus, devfn + fn);
  		if (dev) {
  			if (!pci_dev_is_added(dev))
-diff -uNr linux-5.0.17/drivers/ps4/aeolia.h ps4gentoo5.0.17-master/drivers/ps4/aeolia.h
+diff -uNr linux-5.0.17/drivers/ps4/aeolia.h ps4-5.0.17-master/drivers/ps4/aeolia.h
 --- linux-5.0.17/drivers/ps4/aeolia.h	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/ps4/aeolia.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ps4/aeolia.h	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,172 @@
 +#ifndef _AEOLIA_H
 +#define _AEOLIA_H
@@ -5845,9 +5861,9 @@ diff -uNr linux-5.0.17/drivers/ps4/aeolia.h ps4gentoo5.0.17-master/drivers/ps4/a
 +	    void *reply, u16 reply_length);
 +
 +#endif
-diff -uNr linux-5.0.17/drivers/ps4/icc/i2c.c ps4gentoo5.0.17-master/drivers/ps4/icc/i2c.c
+diff -uNr linux-5.0.17/drivers/ps4/icc/i2c.c ps4-5.0.17-master/drivers/ps4/icc/i2c.c
 --- linux-5.0.17/drivers/ps4/icc/i2c.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/ps4/icc/i2c.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ps4/icc/i2c.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,156 @@
 +#include <linux/serial_8250.h>
 +#include <linux/serial_core.h>
@@ -6005,9 +6021,9 @@ diff -uNr linux-5.0.17/drivers/ps4/icc/i2c.c ps4gentoo5.0.17-master/drivers/ps4/
 +{
 +	i2c_del_adapter(&sc->icc.i2c);
 +}
-diff -uNr linux-5.0.17/drivers/ps4/Makefile ps4gentoo5.0.17-master/drivers/ps4/Makefile
+diff -uNr linux-5.0.17/drivers/ps4/Makefile ps4-5.0.17-master/drivers/ps4/Makefile
 --- linux-5.0.17/drivers/ps4/Makefile	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/ps4/Makefile	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ps4/Makefile	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,9 @@
 +# Aeolia PCI devices
 +# LISTED IN INIT ORDER \o/ ...  ._.
@@ -6018,9 +6034,9 @@ diff -uNr linux-5.0.17/drivers/ps4/Makefile ps4gentoo5.0.17-master/drivers/ps4/M
 +	ps4-apcie-icc.o \
 +	ps4-apcie-pwrbutton.o \
 +	icc/i2c.o \
-diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie.c ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie.c
+diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie.c ps4-5.0.17-master/drivers/ps4/ps4-apcie.c
 --- linux-5.0.17/drivers/ps4/ps4-apcie.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ps4/ps4-apcie.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,534 @@
 +#define DEBUG
 +
@@ -6556,9 +6572,9 @@ diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie.c ps4gentoo5.0.17-master/drivers/ps
 +#endif
 +};
 +module_pci_driver(apcie_driver);
-diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-icc.c ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie-icc.c
+diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-icc.c ps4-5.0.17-master/drivers/ps4/ps4-apcie-icc.c
 --- linux-5.0.17/drivers/ps4/ps4-apcie-icc.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie-icc.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ps4/ps4-apcie-icc.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,602 @@
 +#define DEBUG
 +
@@ -7162,9 +7178,9 @@ diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-icc.c ps4gentoo5.0.17-master/driver
 +{
 +}
 +#endif
-diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-pwrbutton.c ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie-pwrbutton.c
+diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-pwrbutton.c ps4-5.0.17-master/drivers/ps4/ps4-apcie-pwrbutton.c
 --- linux-5.0.17/drivers/ps4/ps4-apcie-pwrbutton.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie-pwrbutton.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ps4/ps4-apcie-pwrbutton.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,69 @@
 +#include <linux/input.h>
 +#include "aeolia.h"
@@ -7235,9 +7251,9 @@ diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-pwrbutton.c ps4gentoo5.0.17-master/
 +		input_free_device(sc->icc.pwrbutton_dev);
 +	sc->icc.pwrbutton_dev = NULL;
 +}
-diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-uart.c ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie-uart.c
+diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-uart.c ps4-5.0.17-master/drivers/ps4/ps4-apcie-uart.c
 --- linux-5.0.17/drivers/ps4/ps4-apcie-uart.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/ps4/ps4-apcie-uart.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/ps4/ps4-apcie-uart.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,67 @@
 +#include <linux/serial_8250.h>
 +#include <linux/serial_core.h>
@@ -7306,9 +7322,9 @@ diff -uNr linux-5.0.17/drivers/ps4/ps4-apcie-uart.c ps4gentoo5.0.17-master/drive
 +			serial8250_resume_port(sc->serial_line[i]);
 +}
 +#endif
-diff -uNr linux-5.0.17/drivers/usb/host/Kconfig ps4gentoo5.0.17-master/drivers/usb/host/Kconfig
+diff -uNr linux-5.0.17/drivers/usb/host/Kconfig ps4-5.0.17-master/drivers/usb/host/Kconfig
 --- linux-5.0.17/drivers/usb/host/Kconfig	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/usb/host/Kconfig	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/usb/host/Kconfig	2019-05-20 16:57:42.000000000 +0200
 @@ -93,6 +93,13 @@
  	---help---
  	  Say 'Y' to enable the support for the xHCI host controller
@@ -7323,9 +7339,9 @@ diff -uNr linux-5.0.17/drivers/usb/host/Kconfig ps4gentoo5.0.17-master/drivers/u
  
  endif # USB_XHCI_HCD
  
-diff -uNr linux-5.0.17/drivers/usb/host/Makefile ps4gentoo5.0.17-master/drivers/usb/host/Makefile
+diff -uNr linux-5.0.17/drivers/usb/host/Makefile ps4-5.0.17-master/drivers/usb/host/Makefile
 --- linux-5.0.17/drivers/usb/host/Makefile	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/usb/host/Makefile	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/usb/host/Makefile	2019-05-20 16:57:42.000000000 +0200
 @@ -78,6 +78,7 @@
  obj-$(CONFIG_USB_XHCI_HISTB)	+= xhci-histb.o
  obj-$(CONFIG_USB_XHCI_MTK)	+= xhci-mtk.o
@@ -7334,9 +7350,9 @@ diff -uNr linux-5.0.17/drivers/usb/host/Makefile ps4gentoo5.0.17-master/drivers/
  obj-$(CONFIG_USB_SL811_HCD)	+= sl811-hcd.o
  obj-$(CONFIG_USB_SL811_CS)	+= sl811_cs.o
  obj-$(CONFIG_USB_U132_HCD)	+= u132-hcd.o
-diff -uNr linux-5.0.17/drivers/usb/host/xhci-aeolia.c ps4gentoo5.0.17-master/drivers/usb/host/xhci-aeolia.c
+diff -uNr linux-5.0.17/drivers/usb/host/xhci-aeolia.c ps4-5.0.17-master/drivers/usb/host/xhci-aeolia.c
 --- linux-5.0.17/drivers/usb/host/xhci-aeolia.c	1970-01-01 01:00:00.000000000 +0100
-+++ ps4gentoo5.0.17-master/drivers/usb/host/xhci-aeolia.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/usb/host/xhci-aeolia.c	2019-05-20 16:57:42.000000000 +0200
 @@ -0,0 +1,304 @@
 +/*
 + * xhci-aeoliat.c - xHCI host controller driver for Aeolia (Sony PS4)
@@ -7642,9 +7658,9 @@ diff -uNr linux-5.0.17/drivers/usb/host/xhci-aeolia.c ps4gentoo5.0.17-master/dri
 +
 +MODULE_DESCRIPTION("xHCI Aeolia Host Controller Driver");
 +MODULE_LICENSE("GPL");
-diff -uNr linux-5.0.17/drivers/usb/host/xhci.c ps4gentoo5.0.17-master/drivers/usb/host/xhci.c
+diff -uNr linux-5.0.17/drivers/usb/host/xhci.c ps4-5.0.17-master/drivers/usb/host/xhci.c
 --- linux-5.0.17/drivers/usb/host/xhci.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/usb/host/xhci.c	2019-09-04 17:36:03.393091436 +0200
++++ ps4-5.0.17-master/drivers/usb/host/xhci.c	2019-09-05 15:43:25.057348097 +0200
 @@ -5103,20 +5103,22 @@
  
  	/* Set dma_mask and coherent_dma_mask to 64-bits,
@@ -7682,9 +7698,9 @@ diff -uNr linux-5.0.17/drivers/usb/host/xhci.c ps4gentoo5.0.17-master/drivers/us
  	}
  
  	xhci_dbg(xhci, "Calling HCD init\n");
-diff -uNr linux-5.0.17/drivers/usb/host/xhci.h ps4gentoo5.0.17-master/drivers/usb/host/xhci.h
+diff -uNr linux-5.0.17/drivers/usb/host/xhci.h ps4-5.0.17-master/drivers/usb/host/xhci.h
 --- linux-5.0.17/drivers/usb/host/xhci.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/drivers/usb/host/xhci.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/drivers/usb/host/xhci.h	2019-05-20 16:57:42.000000000 +0200
 @@ -1854,6 +1854,7 @@
  #define XHCI_DEFAULT_PM_RUNTIME_ALLOW	BIT_ULL(33)
  #define XHCI_RESET_PLL_ON_DISCONNECT	BIT_ULL(34)
@@ -7693,9 +7709,9 @@ diff -uNr linux-5.0.17/drivers/usb/host/xhci.h ps4gentoo5.0.17-master/drivers/us
  
  	unsigned int		num_active_eps;
  	unsigned int		limit_active_eps;
-diff -uNr linux-5.0.17/fs/namei.c ps4gentoo5.0.17-master/fs/namei.c
+diff -uNr linux-5.0.17/fs/namei.c ps4-5.0.17-master/fs/namei.c
 --- linux-5.0.17/fs/namei.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/fs/namei.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/fs/namei.c	2019-05-20 16:57:42.000000000 +0200
 @@ -885,8 +885,8 @@
  		path_put(&last->link);
  }
@@ -7707,9 +7723,9 @@ diff -uNr linux-5.0.17/fs/namei.c ps4gentoo5.0.17-master/fs/namei.c
  int sysctl_protected_fifos __read_mostly;
  int sysctl_protected_regular __read_mostly;
  
-diff -uNr linux-5.0.17/include/drm/amd_asic_type.h ps4gentoo5.0.17-master/include/drm/amd_asic_type.h
+diff -uNr linux-5.0.17/include/drm/amd_asic_type.h ps4-5.0.17-master/include/drm/amd_asic_type.h
 --- linux-5.0.17/include/drm/amd_asic_type.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/include/drm/amd_asic_type.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/include/drm/amd_asic_type.h	2019-05-20 16:57:42.000000000 +0200
 @@ -34,6 +34,8 @@
  	CHIP_BONAIRE,
  	CHIP_KAVERI,
@@ -7719,9 +7735,9 @@ diff -uNr linux-5.0.17/include/drm/amd_asic_type.h ps4gentoo5.0.17-master/includ
  	CHIP_HAWAII,
  	CHIP_MULLINS,
  	CHIP_TOPAZ,
-diff -uNr linux-5.0.17/include/linux/pci_ids.h ps4gentoo5.0.17-master/include/linux/pci_ids.h
+diff -uNr linux-5.0.17/include/linux/pci_ids.h ps4-5.0.17-master/include/linux/pci_ids.h
 --- linux-5.0.17/include/linux/pci_ids.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/include/linux/pci_ids.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/include/linux/pci_ids.h	2019-05-20 16:57:42.000000000 +0200
 @@ -545,6 +545,8 @@
  #define PCI_DEVICE_ID_AMD_16H_NB_F4	0x1534
  #define PCI_DEVICE_ID_AMD_16H_M30H_NB_F3 0x1583
@@ -7762,9 +7778,9 @@ diff -uNr linux-5.0.17/include/linux/pci_ids.h ps4gentoo5.0.17-master/include/li
  
  /* Winbond have two vendor IDs! See 0x10ad as well */
  #define PCI_VENDOR_ID_WINBOND2		0x1050
-diff -uNr linux-5.0.17/include/uapi/linux/xattr.h ps4gentoo5.0.17-master/include/uapi/linux/xattr.h
+diff -uNr linux-5.0.17/include/uapi/linux/xattr.h ps4-5.0.17-master/include/uapi/linux/xattr.h
 --- linux-5.0.17/include/uapi/linux/xattr.h	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/include/uapi/linux/xattr.h	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/include/uapi/linux/xattr.h	2019-05-20 16:57:42.000000000 +0200
 @@ -77,5 +77,9 @@
  #define XATTR_POSIX_ACL_DEFAULT  "posix_acl_default"
  #define XATTR_NAME_POSIX_ACL_DEFAULT XATTR_SYSTEM_PREFIX XATTR_POSIX_ACL_DEFAULT
@@ -7775,9 +7791,9 @@ diff -uNr linux-5.0.17/include/uapi/linux/xattr.h ps4gentoo5.0.17-master/include
 +#define XATTR_NAME_PAX_FLAGS XATTR_PAX_PREFIX XATTR_PAX_FLAGS_SUFFIX
  
  #endif /* _UAPI_LINUX_XATTR_H */
-diff -uNr linux-5.0.17/mm/shmem.c ps4gentoo5.0.17-master/mm/shmem.c
+diff -uNr linux-5.0.17/mm/shmem.c ps4-5.0.17-master/mm/shmem.c
 --- linux-5.0.17/mm/shmem.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4gentoo5.0.17-master/mm/shmem.c	2019-05-21 01:57:43.000000000 +0200
++++ ps4-5.0.17-master/mm/shmem.c	2019-05-20 16:57:42.000000000 +0200
 @@ -3140,6 +3140,14 @@
  	struct shmem_inode_info *info = SHMEM_I(inode);
  
