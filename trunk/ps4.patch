@@ -756,39 +756,6 @@ diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/atombios_encoders.c ps4-5.0.17
  		return ATOM_ENCODER_MODE_DP;
  
  	/* DVO is always DVO */
-diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ci_dpm.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/ci_dpm.c
---- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/ci_dpm.c	2019-05-16 19:40:30.000000000 +0200
-+++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/ci_dpm.c	2019-09-05 15:31:23.178111680 +0200
-@@ -341,6 +341,7 @@
- 	case 0x6658:
- 	case 0x665C:
- 	case 0x665D:
-+    case 0x9922:
- 	default:
- 		pi->powertune_defaults = &defaults_bonaire_xt;
- 		break;
-@@ -3550,7 +3551,7 @@
- 				  &pi->dpm_table.pcie_speed_table,
- 				  SMU7_MAX_LEVELS_LINK);
- 
--	if (adev->asic_type == CHIP_BONAIRE)
-+	if (((adev->asic_type == CHIP_BONAIRE) && (adev->asic_type == CHIP_LIVERPOOL)) && (adev->asic_type == CHIP_GLADIUS))
- 		ci_setup_pcie_table_entry(&pi->dpm_table.pcie_speed_table, 0,
- 					  pi->pcie_gen_powersaving.min,
- 					  pi->pcie_lane_powersaving.max);
-@@ -5802,6 +5803,12 @@
- 			chip_name = "bonaire_k";
- 		else
- 			chip_name = "bonaire";
-+		break;
-+        case CHIP_LIVERPOOL:
-+		if (adev->pdev->device == 0x9922)
-+			chip_name = "bonaire_k";
-+		else
-+			chip_name = "bonaire";
- 		break;
- 	case CHIP_HAWAII:
- 		if (adev->pdev->revision == 0x80)
 diff -uNr linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik.c ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik.c
 --- linux-5.0.17/drivers/gpu/drm/amd/amdgpu/cik.c	2019-05-16 19:40:30.000000000 +0200
 +++ ps4-5.0.17-master/drivers/gpu/drm/amd/amdgpu/cik.c	2019-05-20 16:57:42.000000000 +0200
