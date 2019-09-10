@@ -19,7 +19,7 @@ source=(
   "$_srcname::git+https://git.archlinux.org/linux.git?signed#tag=v$_srcver"
   config         # the main kernel config file
   60-linux.hook  # pacman hook for depmod
-  90-linux.hook  # pacman hook for initramfs regeneration
+  #90-linux.hook  # pacman hook for initramfs regeneration
   linux.preset   # standard config files for mkinitcpio ramdisk
   ps4.patch      # Patches for PS4
 )
@@ -71,7 +71,7 @@ build() {
 _package() {
   pkgdesc="The ${pkgbase/linux/Linux} kernel and modules"
   [[ $pkgbase = linux ]] && groups=(base)
-  depends=(coreutils linux-firmware kmod mkinitcpio)
+  depends=(coreutils linux-firmware kmod)
   optdepends=('crda: to set the correct wireless channels of your country')
   backup=("etc/mkinitcpio.d/$pkgbase.preset")
   install=linux.install
@@ -113,12 +113,12 @@ _package() {
   true && install=$install.pkg
 
   # fill in mkinitcpio preset and pacman hooks
-  sed "$subst" ../linux.preset | install -Dm644 /dev/stdin \
-    "$pkgdir/etc/mkinitcpio.d/$pkgbase.preset"
-  sed "$subst" ../60-linux.hook | install -Dm644 /dev/stdin \
-    "$pkgdir/usr/share/libalpm/hooks/60-$pkgbase.hook"
-  sed "$subst" ../90-linux.hook | install -Dm644 /dev/stdin \
-    "$pkgdir/usr/share/libalpm/hooks/90-$pkgbase.hook"
+  #sed "$subst" ../linux.preset | install -Dm644 /dev/stdin \
+  #  "$pkgdir/etc/mkinitcpio.d/$pkgbase.preset"
+  #sed "$subst" ../60-linux.hook | install -Dm644 /dev/stdin \
+  #  "$pkgdir/usr/share/libalpm/hooks/60-$pkgbase.hook"
+  #sed "$subst" ../90-linux.hook | install -Dm644 /dev/stdin \
+  #  "$pkgdir/usr/share/libalpm/hooks/90-$pkgbase.hook"
 
   msg2 "Fixing permissions..."
   chmod -Rc u=rwX,go=rX "$pkgdir"
